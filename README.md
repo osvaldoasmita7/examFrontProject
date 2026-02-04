@@ -1,73 +1,37 @@
-# React + TypeScript + Vite
+# Proyecto creado con React + TS y Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En este proyecto se implementó un flujo básico de autenticación que incluye el registro de usuarios, inicio de sesión y una pantalla para validar la sesión activa del usuario.
 
-Currently, two official plugins are available:
+# ¿Porque utilicé ciertas tecnologías?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Se utilizó Vite debido a que permite generar compilaciones de React de manera muy rápida y ligera, ofreciendo además un entorno de desarrollo estable y eficiente.
 
-## React Compiler
+Se decidió implementar Context API ya que fue necesario manejar la sesión del usuario junto con su token de autenticación. Esto permitió centralizar la lógica de sesión y realizar las peticiones al backend de forma dedicada y organizada.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Se utilizó Ant Design porque es una librería fácil de usar y ampliamente adoptada a nivel mundial. Proporciona una gran variedad de componentes que permiten construir interfaces funcionales y consistentes en poco tiempo.
 
-## Expanding the ESLint configuration
+# ¿Qué fue lo que más se me complicó?
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Principalmente el tiempo, ya que era necesario desarrollar las tres pantallas y el tiempo disponible fue limitado, considerando también las configuraciones e instalaciones iniciales del proyecto.
+
+Además, se intentó cubrir todos los puntos acordados, incluyendo aspectos relacionados con la seguridad y la prevención de posibles vulnerabilidades en el código.
+
+# ¿Qué cambiaría si tuviera más tiempo?
+
+Mejoraría el diseño de la interfaz, implementando de forma más completa Tailwind CSS para lograr una experiencia de usuario más robusta, visual y personalizada.
+
+# Comandos para ejecutar
+
+Para Instalar las dependencias
 
 ```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+  npm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Para ejecutar el proyecto
 
 ```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+  npm run dev
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
